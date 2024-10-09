@@ -13,13 +13,15 @@ const corsOptions = {
 }
 cors(corsOptions)
 
-// middlewares
 app.use(express.json())
+
+// database connected
 mongoose
 .connect(MONGO_URI)
 .then(() => console.log('mongodb is connected'))
 .catch((error) => console.log(error));
 
+// middlewares
 app.use((err, req, res, next) => {
     console.log(err.stack);
     res.status(500).json({
