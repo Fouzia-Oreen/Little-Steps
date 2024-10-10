@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "play school management system",
   "main": "server.js",
-
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon server.js"
@@ -23,6 +22,7 @@
     "paypal-rest-sdk": "^1.8.1"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0"
   }

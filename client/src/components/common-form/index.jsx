@@ -1,5 +1,4 @@
 /* eslint-disable react/prop-types */
-
 import { Button } from "../ui/button";
 import FormControls from "./form-controls";
 
@@ -12,14 +11,14 @@ function CommonForm({
   isButtonDisabled = false,
 }) {
   return (
-    <form onSubmit={handleSubmit} className="mt-8">
+    <form onSubmit={handleSubmit}>
       {/* render form controls here */}
-      <FormControls 
+      <FormControls
         formControls={formControls}
         formData={formData}
         setFormData={setFormData}
       />
-      <Button disabled={isButtonDisabled} type="submit" className="mt-5 w-full bg-neutral-600">
+      <Button disabled={isButtonDisabled} type="submit" className="mt-5 w-full">
         {buttonText || "Submit"}
       </Button>
     </form>
