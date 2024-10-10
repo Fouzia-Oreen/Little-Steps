@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
-import Footer from './components/Footer'
+import Footer from './components/footer'
 import { Button } from './components/ui/button'
 import AuthPage from './pages/auth'
 
