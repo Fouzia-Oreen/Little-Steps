@@ -1,4 +1,3 @@
- 
 /* eslint-disable react/prop-types */
 import { initialSignInFormData, initialSignUpFormData } from "@/config";
 import { registerService } from "@/services";
