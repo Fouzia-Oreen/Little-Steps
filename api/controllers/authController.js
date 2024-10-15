@@ -1,7 +1,7 @@
-const User = require("../../models/User")
-const bcrypt = require("bcryptjs")
+import User  from "../../models/User";
+import bcrypt  from "bcryptjs"
 
-const registerUser = async (req, res) => {
+export const registerUser = async (req, res) => {
     const { userName, userEmail, password, role } = req.body;
   
     const existingUser = await User.findOne({
@@ -29,6 +29,5 @@ const registerUser = async (req, res) => {
       success: true,
       message: "User registered successfully!",
     });
-  };
+};
 
-module.exports = { registerUser }
