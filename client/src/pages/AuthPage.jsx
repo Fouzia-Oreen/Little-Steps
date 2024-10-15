@@ -11,11 +11,13 @@ export default function AuthPage() {
             setSignUpFormData,
             signInFormData,
             setSignInFormData, 
-            handleRegisterUser } = useContext(AuthContext)
+            handleRegisterUser,
+            handleLoginUser
+         } = useContext(AuthContext)
     const handleChange = (value) => {
         setActiveTab(value)
     } 
-    console.log(signInFormData);
+    // console.log(signInFormData);
     
     function checkIfSignInFormIsValid() {
         return (
@@ -75,6 +77,7 @@ export default function AuthPage() {
                         formData={signInFormData}
                         setFormData={setSignInFormData}
                         isButtonDisabled={!checkIfSignInFormIsValid()}
+                        handleSubmit={handleLoginUser}
                         />
                     </CardContent>       
                 </Card>
