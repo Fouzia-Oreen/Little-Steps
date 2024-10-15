@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Button } from "../ui/button";
-import FormControls from "./form-controls";
+import FormControls from "./FormControls";
 
 function CommonForm({
   handleSubmit,

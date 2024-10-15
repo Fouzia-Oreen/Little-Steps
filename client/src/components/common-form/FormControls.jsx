@@ -57,6 +57,7 @@ import {
                 </Select>
         );
         break;
+        
         case 'textarea':
                     element = <Textarea 
                     id={getControlItem.name}

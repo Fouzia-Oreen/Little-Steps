@@ -47,4 +47,4 @@ export const initialSignUpFormData = {
     UserName: "",
     userEmail: "",
     password: ""
-  }
+}

@@ -1,7 +1,7 @@
-import CommonForm from "@/components/common-form";
+import CommonForm from "@/components/common-form/Form";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { signInFormControls, signUpFormControls } from "@/config";
+import { signInFormControls, signUpFormControls } from "@/config/formData.js";
 import { AuthContext } from "@/context/authContext";
 import { useContext, useState } from "react";
 
@@ -14,15 +14,22 @@ export default function AuthPage() {
             handleRegisterUser } = useContext(AuthContext)
     const handleChange = (value) => {
         setActiveTab(value)
-    }
+    } 
+    console.log(signInFormData);
+    
     function checkIfSignInFormIsValid() {
         return (
-            signInFormData && signInFormData.userEmail != "" && signInFormData.password != ""
+            signInFormData && 
+            signInFormData.userEmail != "" && 
+            signInFormData.password != ""
         )
     }
     function checkIfSignUpFormIsValid() {
         return (
-            signUpFormData && signUpFormData.userName != "" &&signUpFormData.userEmail != "" && signUpFormData.password != ''
+            signUpFormData && 
+            signUpFormData.userName != "" && 
+            signUpFormData.userEmail != "" && 
+            signUpFormData.password != ''
         )
     }
 
@@ -39,7 +46,9 @@ export default function AuthPage() {
                 <Card className=" space-y-4">
                     <CardHeader>
                         <CardTitle className="font-bold text-lg">Sign up</CardTitle>
-                        <CardDescription>Enter your name, email and password to sign-up your account</CardDescription>
+                        <CardDescription>
+                            Enter your name, email and password to sign-up your account
+                        </CardDescription>
                     </CardHeader>
                     <CardContent className="space-y-2">
                         <CommonForm 

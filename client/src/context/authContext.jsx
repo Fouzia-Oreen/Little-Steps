@@ -1,13 +1,13 @@
 /* eslint-disable react/prop-types */
-import { initialSignInFormData, initialSignUpFormData } from "@/config";
+import { initialSignInFormData, initialSignUpFormData } from "@/config/formData";
 import { registerService } from "@/services";
 import { createContext, useState } from "react";
 
 export const AuthContext = createContext(null);
 
 export default function AuthProvider({children}) {
-    const [signUpFormData, setSignUpFormData] =useState(initialSignUpFormData)
-    const [signInFormData, setSignInFormData] =useState(initialSignInFormData)
+    const [signUpFormData, setSignUpFormData] = useState(initialSignUpFormData)
+    const [signInFormData, setSignInFormData] = useState(initialSignInFormData)
 
     async function handleRegisterUser(event) {
         event.preventDefault();
