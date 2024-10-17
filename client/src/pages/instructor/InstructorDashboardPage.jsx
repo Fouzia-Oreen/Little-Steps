@@ -4,12 +4,12 @@ import InstructorDashboard from "@/components/instructor-view/dashboard/Instruct
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent } from "@/components/ui/tabs";
 import { AuthContext } from "@/context/authContext";
-import { InstructorContext } from "@/context/instructor-context";
+import { InstructorContext } from "@/context/instructorContext";
 import { fetchInstructorCourseListService } from "@/services";
 import { BarChart, Book, LogOut } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 
-function InstructorDashboardpage() {
+function InstructorDashboardPage() {
   const [activeTab, setActiveTab] = useState("dashboard");
   const { resetCredentials } = useContext(AuthContext);
   const { instructorCoursesList, setInstructorCoursesList } =
@@ -92,4 +92,4 @@ function InstructorDashboardpage() {
   );
 }
 
-export default InstructorDashboardpage;
+export default InstructorDashboardPage;

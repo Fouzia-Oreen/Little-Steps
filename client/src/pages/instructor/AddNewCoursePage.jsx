@@ -10,7 +10,7 @@ import {
   courseLandingInitialFormData,
 } from "@/config/formData.js";
 import { AuthContext } from "@/context/authContext";
-import { InstructorContext } from "@/context/instructor-context";
+import { InstructorContext } from "@/context/instructorContext";
 import {
   addNewCourseService,
   fetchInstructorCourseDetailsService,
