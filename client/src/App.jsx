@@ -6,6 +6,8 @@ import { AuthContext } from "./context/authContext";
 import AuthPage from "./pages/AuthPage";
 import InstructorDashboardpage from "./pages/instructor/InstructorDashboardPage";
 import StudentHomePage from "./pages/student/StudentHomePage";
+import NotFoundPage from "./pages/NotFound";
+import AddNewCoursePage from "./pages/instructor/AddNewCoursePage";
 
 function App() {
   const { auth } = useContext(AuthContext);
@@ -32,7 +34,7 @@ function App() {
           />
         }
       />
-      {/* <Route
+      <Route
         path="/instructor/create-new-course"
         element={
           <RouteGuard
@@ -41,8 +43,8 @@ function App() {
             user={auth?.user}
           />
         }
-      /> */}
-      {/* <Route
+      />
+      <Route
         path="/instructor/edit-course/:courseId"
         element={
           <RouteGuard
@@ -51,7 +53,7 @@ function App() {
             user={auth?.user}
           />
         }
-      /> */}
+      />
       <Route
         path="/"
         element={
@@ -76,7 +78,7 @@ function App() {
           element={<StudentViewCourseProgressPage />}
         /> */}
       </Route>
-      {/* <Route path="*" element={<NotFoundPage />} /> */}
+      <Route path="*" element={<NotFoundPage />} />
     </Routes>
   );
 }
