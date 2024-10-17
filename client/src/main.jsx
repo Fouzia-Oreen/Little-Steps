@@ -5,7 +5,15 @@ import './index.css'
 import AuthProvider from './context/authContext.jsx'
 
 createRoot(document.getElementById('root')).render(
-
+//   <BrowserRouter>
+//   <AuthProvider>
+//     <InstructorProvider>
+//       <StudentProvider>
+//         <App />
+//       </StudentProvider>
+//     </InstructorProvider>
+//   </AuthProvider>
+// </BrowserRouter>
   <BrowserRouter>
     <AuthProvider>
       <App />

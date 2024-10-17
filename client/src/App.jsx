@@ -1,56 +1,84 @@
-import { Route, Routes } from 'react-router-dom'
-import './App.css'
-import Footer from './components/footer'
-import AuthPage from './pages/AuthPage'
-import HomePage from './pages/HomePage'
-import Header from './components/header/Header'
-import RouteGaurd from './components/route-gaurd/index.js'
-import { useContext } from 'react'
-import { AuthContext } from './context/authContext'
-import InstructorDashboardPage from './pages/instructor/InstructorDashboardPage'
-import StudentViewCommonLayout from './components/student-view/StudentViewCommonLayout'
-import StudentHomePage from './pages/student/StudentHomePage'
+import { useContext } from "react";
+import { Route, Routes } from "react-router-dom";
+import RouteGuard from "./components/route-gaurd/RouteGuard";
+import StudentViewCommonLayout from "./components/student-view/StudentViewCommonLayout";
+import { AuthContext } from "./context/authContext";
+import AuthPage from "./pages/AuthPage";
+import InstructorDashboardpage from "./pages/instructor/InstructorDashboardPage";
+import StudentHomePage from "./pages/student/StudentHomePage";
 
 function App() {
-  const {auth} = useContext(AuthContext)
-  return (
-    <>
-    <Header />
-    <Routes >
-      <Route path="/" element={<HomePage />}/>
-      <Route 
-        path="/auth" 
-        element={
-          <RouteGaurd 
-          element={<AuthPage/>} 
-          authenticated={auth?.authenticated} 
-        user={auth?.user} />}
-      />
-      <Route 
-        path="/instructor" 
-        element={
-          <RouteGaurd 
-          element={<InstructorDashboardPage/>} 
-          authenticated={auth?.authenticated} 
-        user={auth?.user} />}
-      />
-      <Route 
-        path="/" 
-        element={
-          <RouteGaurd 
-          element={<StudentViewCommonLayout />} 
-          authenticated={auth?.authenticated} 
-        user={auth?.user} />}
-      >
-        <Route path="home" element={<StudentHomePage />}/>
-        <Route path="" element={<StudentHomePage />}/>
-      </Route>
+  const { auth } = useContext(AuthContext);
 
+  return (
+    <Routes>
+      <Route
+        path="/auth"
+        element={
+          <RouteGuard
+            element={<AuthPage />}
+            authenticated={auth?.authenticate}
+            user={auth?.user}
+          />
+        }
+      />
+      <Route
+        path="/instructor"
+        element={
+          <RouteGuard
+            element={<InstructorDashboardpage />}
+            authenticated={auth?.authenticate}
+            user={auth?.user}
+          />
+        }
+      />
+      {/* <Route
+        path="/instructor/create-new-course"
+        element={
+          <RouteGuard
+            element={<AddNewCoursePage />}
+            authenticated={auth?.authenticate}
+            user={auth?.user}
+          />
+        }
+      /> */}
+      {/* <Route
+        path="/instructor/edit-course/:courseId"
+        element={
+          <RouteGuard
+            element={<AddNewCoursePage />}
+            authenticated={auth?.authenticate}
+            user={auth?.user}
+          />
+        }
+      /> */}
+      <Route
+        path="/"
+        element={
+          <RouteGuard
+            element={<StudentViewCommonLayout />}
+            authenticated={auth?.authenticate}
+            user={auth?.user}
+          />
+        }
+      >
+        <Route path="" element={<StudentHomePage />} />
+        <Route path="home" element={<StudentHomePage />} />
+        {/* <Route path="courses" element={<StudentViewCoursesPage />} /> */}
+        {/* <Route
+          path="course/details/:id"
+          element={<StudentViewCourseDetailsPage />}
+        /> */}
+        {/* <Route path="payment-return" element={<PaypalPaymentReturnPage />} /> */}
+        {/* <Route path="student-courses" element={<StudentCoursesPage />} /> */}
+        {/* <Route
+          path="course-progress/:id"
+          element={<StudentViewCourseProgressPage />}
+        /> */}
+      </Route>
+      {/* <Route path="*" element={<NotFoundPage />} /> */}
     </Routes>
-    <Footer />
-   </>
-  )
+  );
 }
 
-export default App
-//
+export default App;

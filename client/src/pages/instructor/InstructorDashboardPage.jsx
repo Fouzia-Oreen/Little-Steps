@@ -1,6 +1,6 @@
 
 
-const InstructorDashboard = () => {
+const InstructorDashboardPage = () => {
   return (
     <div>
       InstructorDashboard
@@ -8,4 +8,4 @@ const InstructorDashboard = () => {
   )
 }
 
-export default InstructorDashboard
+export default InstructorDashboardPage
