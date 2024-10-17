@@ -1,9 +1,11 @@
-import dotenv from 'dotenv'
+import cors from "cors";
+import dotenv from 'dotenv';
+import express from "express";
+import mongoose from 'mongoose';
+import authRoutes from '../api/routes/authRoutes.js';
+import mediaRoutes from '../api/routes/instructor-routes/mediaRoutes.js';
 dotenv.config();
-import express from "express"
-import cors from "cors"
-import mongoose from 'mongoose'
-import authRoutes from '../api/routes/authRoutes.js'
+
 
 const app = express();
 const PORT = process.env.PORT || 5000
@@ -28,6 +30,8 @@ mongoose
 
 // router configuration
 app.use('/auth', authRoutes)
+app.use('/media', mediaRoutes)
+
 
 // middlewares
 app.use((err, req, res, next) => {
