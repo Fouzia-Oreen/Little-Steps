@@ -4,6 +4,7 @@ import express from "express";
 import mongoose from 'mongoose';
 import authRoutes from '../api/routes/authRoutes.js';
 import mediaRoutes from '../api/routes/instructor-routes/mediaRoutes.js';
+import instructorCourseRoutes from "./routes/instructor-routes/courseRoutes.js";
 dotenv.config();
 
 
@@ -31,7 +32,7 @@ mongoose
 // router configuration
 app.use('/auth', authRoutes)
 app.use('/media', mediaRoutes)
-
+app.use("/instructor/course", instructorCourseRoutes);
 
 // middlewares
 app.use((err, req, res, next) => {
