@@ -1,7 +1,7 @@
-import FormControls from "@/components/common-form/form-controls";
+import FormControls from "@/components/common-form/FormControls";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { courseLandingPageFormControls } from "@/config";
-import { InstructorContext } from "@/context/instructor-context";
+import { courseLandingPageFormControls } from "@/config/formData";
+import { InstructorContext } from "@/context/instructorContext";
 import { useContext } from "react";
 
 function CourseLanding() {

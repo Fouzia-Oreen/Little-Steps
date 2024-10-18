@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import CourseCurriculum from "@/components/instructor-view/courses/add-new-course/CourseCurriculum.jsx";
+import CourseCurriculum from "@/components/instructor-view/courses/add-new-course/CourseCurriculum";
 import CourseLanding from "@/components/instructor-view/courses/add-new-course/CourseLanding";
 import CourseSettings from "@/components/instructor-view/courses/add-new-course/CourseSettings";
 import { Button } from "@/components/ui/button";

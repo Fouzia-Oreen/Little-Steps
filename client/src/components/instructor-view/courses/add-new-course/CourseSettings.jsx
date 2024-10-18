@@ -1,8 +1,8 @@
-import MediaProgressbar from "@/components/media-progress-bar";
+ import MediaProgressbar from "@/components/media-progress-bar/MediaProgressBar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { InstructorContext } from "@/context/instructor-context";
+import { InstructorContext } from "@/context/instructorContext";
 import { mediaUploadService } from "@/services";
 import { useContext } from "react";
 

@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/jsx-key */
 import InstructorCourses from "@/components/instructor-view/courses/InstructorViewCourses";
 import InstructorDashboard from "@/components/instructor-view/dashboard/InstructorViewDashboard";
