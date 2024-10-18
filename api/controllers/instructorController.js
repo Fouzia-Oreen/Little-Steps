@@ -96,9 +96,9 @@ export const updateCourseByID = async (req, res) => {
   }
 };
 
-export default {
-  addNewCourse,
-  getAllCourses,
-  updateCourseByID,
-  getCourseDetailsByID,
-};
+// export default {
+//   addNewCourse,
+//   getAllCourses,
+//   updateCourseByID,
+//   getCourseDetailsByID,
+// };
