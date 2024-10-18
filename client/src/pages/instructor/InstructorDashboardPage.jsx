@@ -54,15 +54,16 @@ function InstructorDashboardPage() {
   console.log(instructorCoursesList, "instructorCoursesList");
 
   return (
-    <div className="flex h-full min-h-screen bg-gray-100">
-      <aside className="w-64 bg-white shadow-md hidden md:block">
+    <div className="flex h-full min-h-screen bg-neutral-300">
+      <aside className="w-64 bg-neutral-200 shadow-md hidden md:block text-neutral-500">
         <div className="p-4">
-          <h2 className="text-2xl font-bold mb-4">Instructor View</h2>
-          <nav>
+          <h2 className="text-2xl font-bold m-4">Instructor View</h2>
+          <nav >
             {menuItems.map((menuItem) => (
               <Button
-                className="w-full justify-start mb-2"
+                className="w-full justify-start mb-2 bg-neutral-300 hover:bg-neutral-400"
                 key={menuItem.value}
+                // change clolor in css
                 variant={activeTab === menuItem.value ? "secondary" : "ghost"}
                 onClick={
                   menuItem.value === "logout"
@@ -77,10 +78,10 @@ function InstructorDashboardPage() {
           </nav>
         </div>
       </aside>
-      <main className="flex-1 p-8 overflow-y-auto">
+      <main className="flex-1 p-8 overflow-y-auto text-neutral-600">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-3xl font-bold mb-8">Dashboard</h1>
-          <Tabs value={activeTab} onValueChange={setActiveTab}>
+          <h1 className="text-3xl font-bold mb-8 text-neutral-600">Dashboard</h1>
+          <Tabs value={activeTab} onValueChange={setActiveTab} >
             {menuItems.map((menuItem) => (
               <TabsContent value={menuItem.value}>
                 {menuItem.component !== null ? menuItem.component : null}

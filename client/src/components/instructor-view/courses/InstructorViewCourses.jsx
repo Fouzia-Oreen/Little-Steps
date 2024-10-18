@@ -30,7 +30,7 @@ function InstructorCourses({ listOfCourses }) {
   return (
     <Card>
       <CardHeader className="flex justify-between flex-row items-center">
-        <CardTitle className="text-3xl font-extrabold">All Courses</CardTitle>
+        <CardTitle className="text-3xl font-extrabold text-neutral-700">All Courses</CardTitle>
         <Button
           onClick={() => {
             setCurrentEditedCourseId(null);
@@ -38,7 +38,7 @@ function InstructorCourses({ listOfCourses }) {
             setCourseCurriculumFormData(courseCurriculumInitialFormData);
             navigate("/instructor/create-new-course");
           }}
-          className="p-6"
+          className="p-6 bg-blue-700 hover:bg-blue-600"
         >
           Create New Course
         </Button>
