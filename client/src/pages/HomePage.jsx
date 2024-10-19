@@ -2,7 +2,7 @@
 const HomePage = () => {
   return (
     <div>
-      Welcome to Home Pahe
+      Welcome to Little Steps
     </div>
   )
 }
