@@ -8,12 +8,17 @@ import InstructorDashboardpage from "./pages/instructor/InstructorDashboardPage"
 import StudentHomePage from "./pages/student/StudentHomePage";
 import NotFoundPage from "./pages/NotFound";
 import AddNewCoursePage from "./pages/instructor/AddNewCoursePage";
+import StudentViewCoursesPage from "./pages/student/AllCoursesPage";
+import StudentViewCourseDetailsPage from "./pages/student/StudentCourseDetailsPage";
+import StudentViewCourseProgressPage from "./pages/student/StudentCourseProgressPage";
 
 function App() {
   const { auth } = useContext(AuthContext);
 
   return (
     <Routes>
+      {/* home-page routes */}
+      {/* auth routes */}
       <Route
         path="/auth"
         element={
@@ -24,6 +29,7 @@ function App() {
           />
         }
       />
+      {/* instructor pages routes */}
       <Route
         path="/instructor"
         element={
@@ -54,6 +60,7 @@ function App() {
           />
         }
       />
+      {/* student pages routes */}
       <Route
         path="/"
         element={
@@ -66,17 +73,17 @@ function App() {
       >
         <Route path="" element={<StudentHomePage />} />
         <Route path="home" element={<StudentHomePage />} />
-        {/* <Route path="courses" element={<StudentViewCoursesPage />} /> */}
-        {/* <Route
+        <Route path="courses" element={<StudentViewCoursesPage />} />
+        <Route
           path="course/details/:id"
           element={<StudentViewCourseDetailsPage />}
-        /> */}
-        {/* <Route path="payment-return" element={<PaypalPaymentReturnPage />} /> */}
-        {/* <Route path="student-courses" element={<StudentCoursesPage />} /> */}
-        {/* <Route
+        />
+        {/* <Route path="payment-return" element={<PaypalPaymentReturnPage />} />
+        <Route path="student-courses" element={<StudentCoursesPage />} /> */}
+        <Route
           path="course-progress/:id"
           element={<StudentViewCourseProgressPage />}
-        /> */}
+        />
       </Route>
       <Route path="*" element={<NotFoundPage />} />
     </Routes>
