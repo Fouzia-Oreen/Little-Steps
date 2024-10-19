@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import express from "express";
 import mongoose from 'mongoose';
 import authRoutes from '../api/routes/authRoutes.js';
-import mediaRoutes from '../api/routes/instructor-routes/mediaRoutes.js';
+import mediaRoutes  from '../api/routes/instructor-routes/mediaRoutes.js';
 import instructorCourseRoutes from "./routes/instructor-routes/courseRoutes.js";
 dotenv.config();
 

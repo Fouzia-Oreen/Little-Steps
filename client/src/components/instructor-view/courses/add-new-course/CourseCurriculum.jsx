@@ -101,7 +101,6 @@ function CourseCurriculum() {
         videoUrl: "",
         public_id: "",
       };
-
       setCourseCurriculumFormData(cpyCourseCurriculumFormData);
     }
   }

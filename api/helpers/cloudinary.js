@@ -18,7 +18,7 @@ export const uploadMediaToCloudinary = async (filePath) => {
     }
 }
 
-export const deleteMediaToCloudinary = async (publicId) => {
+export const deleteMediaFromCloudinary = async (publicId) => {
     try {
        await cloudinary.uploader.destroy(filePath)
         return result
