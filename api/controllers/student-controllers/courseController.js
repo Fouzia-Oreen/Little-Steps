@@ -109,9 +109,3 @@ export const checkCoursePurchaseInfo = async (req, res) => {
     });
   }
 };
-
-// export default {
-//   getAllStudentViewCourses,
-//   getStudentViewCourseDetails,
-//   checkCoursePurchaseInfo,
-// };
