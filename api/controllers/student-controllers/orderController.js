@@ -3,7 +3,7 @@ import Order from "../../models/Order";
 import Course from "../../models/Course";
 import StudentCourses from "../../models/StudentCourses";
 
-const createOrder = async (req, res) => {
+export const createOrder = async (req, res) => {
   try {
     const {
       userId,
@@ -104,7 +104,7 @@ const createOrder = async (req, res) => {
   }
 };
 
-const capturePaymentAndFinalizeOrder = async (req, res) => {
+export const capturePaymentAndFinalizeOrder = async (req, res) => {
   try {
     const { paymentId, payerId, orderId } = req.body;
 
@@ -184,4 +184,4 @@ const capturePaymentAndFinalizeOrder = async (req, res) => {
   }
 };
 
-module.exports = { createOrder, capturePaymentAndFinalizeOrder };
+// module.exports = { createOrder, capturePaymentAndFinalizeOrder };

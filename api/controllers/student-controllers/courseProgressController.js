@@ -3,7 +3,7 @@ import Course from "../../models/Course";
 import StudentCourses from "../../models/StudentCourses";
 
 //mark current lecture as viewed
-const markCurrentLectureAsViewed = async (req, res) => {
+export const markCurrentLectureAsViewed = async (req, res) => {
   try {
     const { userId, courseId, lectureId } = req.body;
 
@@ -75,7 +75,7 @@ const markCurrentLectureAsViewed = async (req, res) => {
 };
 
 //get current course progress
-const getCurrentCourseProgress = async (req, res) => {
+export const getCurrentCourseProgress = async (req, res) => {
   try {
     const { userId, courseId } = req.params;
 
@@ -147,7 +147,7 @@ const getCurrentCourseProgress = async (req, res) => {
 
 //reset course progress
 
-const resetCurrentCourseProgress = async (req, res) => {
+export const resetCurrentCourseProgress = async (req, res) => {
   try {
     const { userId, courseId } = req.body;
 
@@ -180,8 +180,8 @@ const resetCurrentCourseProgress = async (req, res) => {
   }
 };
 
-module.exports = {
-  markCurrentLectureAsViewed,
-  getCurrentCourseProgress,
-  resetCurrentCourseProgress,
-};
+// module.exports = {
+//   markCurrentLectureAsViewed,
+//   getCurrentCourseProgress,
+//   resetCurrentCourseProgress,
+// };
