@@ -42,9 +42,9 @@ const Footer = () => {
     
 
   return (
-    <footer className="flex flex-col  bg-blue-300 pt-6 overflow-hidden">
-    
-      <div className="flex flex-col md:flex-row my-4 justify-between gap-6 px-4 lg:px-3">
+ 
+    <footer className="flex flex-col  relative ">      
+      <div className=" flex flex-col md:flex-row my-4 justify-between gap-6 px-4 lg:px-3">
       {/* logo */}
       <div className="p-4">
       <div className="w-14 h-14">
@@ -96,11 +96,11 @@ const Footer = () => {
       </div>
       
       {/* copyright */}
-       <div className="bg-blue-200  border-t-[1px] border-blue-400 py-4 text-center font-medium text-sm ">
+       <div className="bg-blue-200  border-t-[1px] border-blue-400 py-4 text-center font-medium text-sm">
         <p>Copyright @FOUZIAOREEN All right reserver - {new Date().toDateString()}</p>
        </div>
-      
     </footer>
+    
   )
 }
 
