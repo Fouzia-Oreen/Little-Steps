@@ -5,9 +5,12 @@ import mongoose from 'mongoose';
 import authRoutes from '../api/routes/authRoutes.js';
 import mediaRoutes  from '../api/routes/instructor-routes/mediaRoutes.js';
 import instructorCourseRoutes from "./routes/instructor-routes/courseRoutes.js";
-import studentViewCourseRoutes from "./routes/student-routes/courseRoute.js";
-dotenv.config();
+import studentViewCourseRoutes from "./routes/student-routes/studentCourseRoute.js";
+import studentViewOrderRoutes from "./routes/student-routes/orderRoutes.js";
+import studentCoursesRoutes from "./routes/student-routes/studentCourseRoute.js";
+import studentCourseProgressRoutes from "./routes/student-routes/studentCourseRoute.js";
 
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000
@@ -35,7 +38,9 @@ app.use('/auth', authRoutes)
 app.use('/media', mediaRoutes)
 app.use("/instructor/course", instructorCourseRoutes);
 app.use("/student/course", studentViewCourseRoutes);
-
+app.use("/student/order", studentViewOrderRoutes);
+app.use("/student/courses-bought", studentCoursesRoutes);
+app.use("/student/course-progress", studentCourseProgressRoutes);
 
 // middlewares
 app.use((err, req, res, next) => {
@@ -45,7 +50,6 @@ app.use((err, req, res, next) => {
         message: "Something went wrong!"
     })
 })
-
 
 // listen to app
 app.listen(PORT,() => {
