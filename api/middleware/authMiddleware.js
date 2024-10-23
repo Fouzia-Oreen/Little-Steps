@@ -1,9 +1,11 @@
 import jwt from 'jsonwebtoken';
 
+// verify the JWT 
 const verifyToken = (token, secretKey) => {
     return jwt.verify(token, secretKey)
 }
 
+// authenticate the user with jwt
 const authenticateMethod  = (req, res, next) => {
     const authHeader = req.headers.authorization;
 
