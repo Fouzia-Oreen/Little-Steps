@@ -1,8 +1,9 @@
-import paypal from "../../helpers/paypal";
-import Order from "../../models/Order";
-import Course from "../../models/Course";
-import StudentCourses from "../../models/StudentCourses";
+import paypal from "../../helpers/paypal.js";
+import Order from "../../models/Order.js";
+import Course from "../../models/Course.js";
+import StudentCourses from "../../models/StudentCourses.js";
 
+// create order in paypal
 export const createOrder = async (req, res) => {
   try {
     const {
@@ -104,6 +105,7 @@ export const createOrder = async (req, res) => {
   }
 };
 
+// accepts payment and finalize order
 export const capturePaymentAndFinalizeOrder = async (req, res) => {
   try {
     const { paymentId, payerId, orderId } = req.body;
@@ -183,5 +185,3 @@ export const capturePaymentAndFinalizeOrder = async (req, res) => {
     });
   }
 };
-
-// module.exports = { createOrder, capturePaymentAndFinalizeOrder };
