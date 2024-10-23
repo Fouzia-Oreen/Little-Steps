@@ -1,8 +1,8 @@
-import CourseProgress from "../../models/CourseProgress";
-import Course from "../../models/Course";
-import StudentCourses from "../../models/StudentCourses";
+import CourseProgress from "../../models/CourseProgress.js";
+import Course from "../../models/Course.js";
+import StudentCourses from "../../models/StudentCourse.js";
 
-//mark current lecture as viewed
+// mark current lecture as viewed
 export const markCurrentLectureAsViewed = async (req, res) => {
   try {
     const { userId, courseId, lectureId } = req.body;
@@ -60,21 +60,21 @@ export const markCurrentLectureAsViewed = async (req, res) => {
       await progress.save();
     }
 
-    res.status(200).json({
-      success: true,
-      message: "Lecture marked as viewed",
-      data: progress,
-    });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      success: false,
-      message: "Some error occured!",
-    });
-  }
+      res.status(200).json({
+        success: true,
+        message: "Lecture marked as viewed",
+        data: progress,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        success: false,
+        message: "Some error occured!",
+      });
+    }
 };
 
-//get current course progress
+// get current course progress
 export const getCurrentCourseProgress = async (req, res) => {
   try {
     const { userId, courseId } = req.params;
@@ -145,8 +145,7 @@ export const getCurrentCourseProgress = async (req, res) => {
   }
 };
 
-//reset course progress
-
+// reset course progress
 export const resetCurrentCourseProgress = async (req, res) => {
   try {
     const { userId, courseId } = req.body;
@@ -179,9 +178,3 @@ export const resetCurrentCourseProgress = async (req, res) => {
     });
   }
 };
-
-// module.exports = {
-//   markCurrentLectureAsViewed,
-//   getCurrentCourseProgress,
-//   resetCurrentCourseProgress,
-// };
