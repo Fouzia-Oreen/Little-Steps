@@ -5,8 +5,9 @@ import {
   getCourseDetailsByID,
   updateCourseByID,
 } from "../../controllers/instructorController.js";
-const router = express.Router();
 
+// create routes for adding a course, read/get all course using details and update the course
+const router = express.Router();
 router.post("/add", addNewCourse);
 router.get("/get", getAllCourses);
 router.get("/get/details/:id", getCourseDetailsByID);
