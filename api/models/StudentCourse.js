@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// create student-course-schema
 const StudentCoursesSchema = new mongoose.Schema({
   userId: String,
   courses: [
