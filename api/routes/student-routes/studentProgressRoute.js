@@ -3,11 +3,12 @@ import {
   getCurrentCourseProgress,
   markCurrentLectureAsViewed,
   resetCurrentCourseProgress,
-} from "../../controllers/student-controllers/courseProgressController";
+} from "../../controllers/student-controllers/courseProgressController.js";
 
 const router = express.Router();
-
+// get , post , mark-progress route
 router.get("/get/:userId/:courseId", getCurrentCourseProgress);
 router.post("/mark-lecture-viewed", markCurrentLectureAsViewed);
 router.post("/reset-progress", resetCurrentCourseProgress);
-module.exports = router;
+
+export default router;
