@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import paypal from "paypal-rest-sdk";
 
 paypal.configure({
@@ -6,4 +8,4 @@ paypal.configure({
   client_secret: process.env.PAYPAL_SECRET_ID,
 });
 
-module.exports = paypal;
+export default paypal;
