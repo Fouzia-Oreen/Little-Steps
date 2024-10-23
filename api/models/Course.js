@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 
+// creating new lecture-schema
 const LectureSchema = new mongoose.Schema({
   title: String,
   videoUrl: String,
@@ -7,6 +8,7 @@ const LectureSchema = new mongoose.Schema({
   freePreview: Boolean,
 });
 
+// creating new course-schema
 const CourseSchema = new mongoose.Schema({
   instructorId: String,
   instructorName: String,
