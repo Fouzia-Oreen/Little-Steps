@@ -1,6 +1,7 @@
 import StudentCourses from "../../models/StudentCourses.js";
 
-const getCoursesByStudentId = async (req, res) => {
+// get course by ID
+export const getCoursesByStudentId = async (req, res) => {
   try {
     const { studentId } = req.params;
     const studentBoughtCourses = await StudentCourses.findOne({
@@ -19,5 +20,3 @@ const getCoursesByStudentId = async (req, res) => {
     });
   }
 };
-
-export default getCoursesByStudentId ;
