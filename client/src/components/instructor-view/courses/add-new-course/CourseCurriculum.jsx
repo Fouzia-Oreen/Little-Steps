@@ -1,29 +1,29 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-unsafe-optional-chaining */
+
+/* importing components */
 import MediaProgressbar from "@/components/media-progress-bar/MediaProgressBar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Switch } from "@/components/ui/switch"; import VideoPlayer from "@/components/video-player/VideoPlayer";
+import { Switch } from "@/components/ui/switch";
+import VideoPlayer from "@/components/video-player/VideoPlayer";
 import { courseCurriculumInitialFormData } from "@/config/formData";
 import { InstructorContext } from "@/context/instructorContext";
 import {
-    mediaBulkUploadService,
-    mediaDeleteService,
-    mediaUploadService,
-} from "@/services";
+  mediaBulkUploadService,
+  mediaDeleteService,
+  mediaUploadService,
+} from "@/services/index";
 import { Upload } from "lucide-react";
 import { useContext, useRef } from "react";
 
 function CourseCurriculum() {
   const {
-    courseCurriculumFormData,
-    setCourseCurriculumFormData,
-    mediaUploadProgress,
-    setMediaUploadProgress,
-    mediaUploadProgressPercentage,
-    setMediaUploadProgressPercentage,
+    courseCurriculumFormData, setCourseCurriculumFormData,
+    mediaUploadProgress, setMediaUploadProgress,
+    mediaUploadProgressPercentage, setMediaUploadProgressPercentage,
   } = useContext(InstructorContext);
 
   const bulkUploadInputRef = useRef(null);
@@ -38,23 +38,23 @@ function CourseCurriculum() {
   }
 
   function handleCourseTitleChange(event, currentIndex) {
-    let cpyCourseCurriculumFormData = [...courseCurriculumFormData];
-    cpyCourseCurriculumFormData[currentIndex] = {
-      ...cpyCourseCurriculumFormData[currentIndex],
+    let copyCourseCurriculumFormData = [...courseCurriculumFormData];
+    copyCourseCurriculumFormData[currentIndex] = {
+      ...copyCourseCurriculumFormData[currentIndex],
       title: event.target.value,
     };
 
-    setCourseCurriculumFormData(cpyCourseCurriculumFormData);
+    setCourseCurriculumFormData(copyCourseCurriculumFormData);
   }
 
   function handleFreePreviewChange(currentValue, currentIndex) {
-    let cpyCourseCurriculumFormData = [...courseCurriculumFormData];
-    cpyCourseCurriculumFormData[currentIndex] = {
-      ...cpyCourseCurriculumFormData[currentIndex],
+    let copyCourseCurriculumFormData = [...courseCurriculumFormData];
+    copyCourseCurriculumFormData[currentIndex] = {
+      ...copyCourseCurriculumFormData[currentIndex],
       freePreview: currentValue,
     };
 
-    setCourseCurriculumFormData(cpyCourseCurriculumFormData);
+    setCourseCurriculumFormData(copyCourseCurriculumFormData);
   }
 
   async function handleSingleLectureUpload(event, currentIndex) {
@@ -71,13 +71,13 @@ function CourseCurriculum() {
           setMediaUploadProgressPercentage
         );
         if (response.success) {
-          let cpyCourseCurriculumFormData = [...courseCurriculumFormData];
-          cpyCourseCurriculumFormData[currentIndex] = {
-            ...cpyCourseCurriculumFormData[currentIndex],
+          let copyCourseCurriculumFormData = [...courseCurriculumFormData];
+          copyCourseCurriculumFormData[currentIndex] = {
+            ...copyCourseCurriculumFormData[currentIndex],
             videoUrl: response?.data?.url,
             public_id: response?.data?.public_id,
           };
-          setCourseCurriculumFormData(cpyCourseCurriculumFormData);
+          setCourseCurriculumFormData(copyCourseCurriculumFormData);
           setMediaUploadProgress(false);
         }
       } catch (error) {
@@ -87,21 +87,21 @@ function CourseCurriculum() {
   }
 
   async function handleReplaceVideo(currentIndex) {
-    let cpyCourseCurriculumFormData = [...courseCurriculumFormData];
+    let copyCourseCurriculumFormData = [...courseCurriculumFormData];
     const getCurrentVideoPublicId =
-      cpyCourseCurriculumFormData[currentIndex].public_id;
+      copyCourseCurriculumFormData[currentIndex].public_id;
 
     const deleteCurrentMediaResponse = await mediaDeleteService(
       getCurrentVideoPublicId
     );
 
     if (deleteCurrentMediaResponse?.success) {
-      cpyCourseCurriculumFormData[currentIndex] = {
-        ...cpyCourseCurriculumFormData[currentIndex],
+      copyCourseCurriculumFormData[currentIndex] = {
+        ...copyCourseCurriculumFormData[currentIndex],
         videoUrl: "",
         public_id: "",
       };
-      setCourseCurriculumFormData(cpyCourseCurriculumFormData);
+      setCourseCurriculumFormData(copyCourseCurriculumFormData);
     }
   }
 
@@ -146,23 +146,23 @@ function CourseCurriculum() {
 
       console.log(response, "bulk");
       if (response?.success) {
-        let cpyCourseCurriculumFormdata =
+        let copyCourseCurriculumFormdata =
           areAllCourseCurriculumFormDataObjectsEmpty(courseCurriculumFormData)
             ? []
             : [...courseCurriculumFormData];
 
-        cpyCourseCurriculumFormdata = [
-          ...cpyCourseCurriculumFormdata,
+        copyCourseCurriculumFormdata = [
+          ...copyCourseCurriculumFormdata,
           ...response?.data.map((item, index) => ({
             videoUrl: item?.url,
             public_id: item?.public_id,
             title: `Lecture ${
-              cpyCourseCurriculumFormdata.length + (index + 1)
+              copyCourseCurriculumFormdata.length + (index + 1)
             }`,
             freePreview: false,
           })),
         ];
-        setCourseCurriculumFormData(cpyCourseCurriculumFormdata);
+        setCourseCurriculumFormData(copyCourseCurriculumFormdata);
         setMediaUploadProgress(false);
       }
     } catch (e) {
@@ -171,18 +171,18 @@ function CourseCurriculum() {
   }
 
   async function handleDeleteLecture(currentIndex) {
-    let cpyCourseCurriculumFormData = [...courseCurriculumFormData];
+    let copyCourseCurriculumFormData = [...courseCurriculumFormData];
     const getCurrentSelectedVideoPublicId =
-      cpyCourseCurriculumFormData[currentIndex].public_id;
+      copyCourseCurriculumFormData[currentIndex].public_id;
 
     const response = await mediaDeleteService(getCurrentSelectedVideoPublicId);
 
     if (response?.success) {
-      cpyCourseCurriculumFormData = cpyCourseCurriculumFormData.filter(
+      copyCourseCurriculumFormData = copyCourseCurriculumFormData.filter(
         (_, index) => index !== currentIndex
       );
 
-      setCourseCurriculumFormData(cpyCourseCurriculumFormData);
+      setCourseCurriculumFormData(copyCourseCurriculumFormData);
     }
   }
 

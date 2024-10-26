@@ -1,4 +1,4 @@
-import StudentCourses from "../../models/StudentCourses.js";
+import StudentCourses from "../../models/StudentCourse.js";
 
 // get course by ID
 export const getCoursesByStudentId = async (req, res) => {

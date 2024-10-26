@@ -1,7 +1,7 @@
 import paypal from "../../helpers/paypal.js";
-import Order from "../../models/Order.js";
+import Order from "../../models/Orders.js";
 import Course from "../../models/Course.js";
-import StudentCourses from "../../models/StudentCourses.js";
+import StudentCourses from "../../models/StudentCourse.js";
 
 // create order in paypal
 export const createOrder = async (req, res) => {

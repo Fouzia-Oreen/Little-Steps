@@ -8,10 +8,10 @@ import Home from "./pages/Home";
 import NotFoundPage from "./pages/NotFound";
 import AddNewCoursePage from "./pages/instructor/AddNewCoursePage";
 import InstructorDashboardpage from "./pages/instructor/InstructorDashboardPage";
-import StudentViewCoursesPage from "./pages/student/AllCoursesPage";
-import StudentViewCourseDetailsPage from "./pages/student/StudentCourseDetailsPage";
-import StudentViewCourseProgressPage from "./pages/student/StudentCourseProgressPage";
-import StudentHomePage from "./pages/student/StudentHomePage";
+import StudentViewCoursesPage from "./pages/student/ViewCoursesPage";
+import StudentViewCourseDetailsPage from "./pages/student/CourseDetailsPage";
+import StudentViewCourseProgressPage from "./pages/student/CourseProgressPage";
+import StudentHomePage from "./pages/student/HomePage";
 
 function App() {
   const { auth } = useContext(AuthContext);
